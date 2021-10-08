@@ -1,0 +1,32 @@
+.quizCard {
+  height: 515px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 24px;
+  padding: 32px;
+  max-width: 465px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.quizCard::after {
+  content: url("../../images/card-icon.svg");
+  position: absolute;
+  height: 115px;
+  width: 160px;
+  right: 0;
+  top: 0;
+  transform: translateY(-65%);
+}
+
+.quizCard::before {
+  position: absolute;
+  content: "Country Quiz";
+  text-transform: uppercase;
+  font-weight: 700;
+  top: -10%;
+  left: 0;
+  color: #f2f2f2;
+  font-size: 36px;
+  line-height: 54px;
+}
