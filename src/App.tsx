@@ -1,9 +1,9 @@
-import { QuizCard } from "./components/quizcard";
+import { QuizWrapper } from "./components/HOC";
 
 export const App = () => {
   return (
     <div className="app">
-      <QuizCard />
+      <QuizWrapper />
     </div>
   );
 };

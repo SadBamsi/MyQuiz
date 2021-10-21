@@ -1,5 +1,4 @@
 .quizCard {
-  height: 515px;
   position: relative;
   background-color: #fff;
   border-radius: 24px;
@@ -24,9 +23,58 @@
   content: "Country Quiz";
   text-transform: uppercase;
   font-weight: 700;
-  top: -10%;
+  top: -50px;
   left: 0;
   color: #f2f2f2;
   font-size: 36px;
   line-height: 54px;
+}
+
+.quizCard_flag {
+  display: block;
+  max-width: 84px;
+  height: 54px;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.quizCard_title {
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: bold;
+}
+
+.quizCard_list {
+  padding: 0;
+  list-style: none;
+}
+
+.quizCard_item {
+  width: 100%;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  border: 2px solid rgba(96, 102, 208, 0.7);
+  border-radius: 12px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: rgba(96, 102, 208, 0.8);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.quizCard_item:hover {
+  background-color: #f9a826;
+  color: #ffffff;
+  border-color: #f9a826;
+}
+
+.quizCard_item:not(:last-of-type) {
+  margin-bottom: 30px;
+}
+
+.quizCard_item--error {
+  background-color: #ea8282;
+}
+
+.quizCard_item--success {
+  background-color: #60bf88;
 }
