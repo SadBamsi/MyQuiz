@@ -1,21 +1,40 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./style.module.css";
 
 interface IProps {
-  quest?: string;
+  questions: any[];
 }
 
-const getData = async () =>
-  await fetch("https://restcountries.com/v3.1/name/peru")
-    .then((res) => res.json())
-    .then((el) => el);
+const random = (arr: any[]) => arr[Math.floor(Math.random() * arr.length)];
 
-export const QuizCard: React.FC<IProps> = ({ quest }) => {
-  const farmDataCpountries = getData().then((res) => console.log(res));
+const randomTheme = random(["capital", "flag"]);
+
+export const QuizCard: React.FC<IProps> = ({ questions }) => {
+  const rightAnswer = random(questions);
+  console.log(rightAnswer.capital);
+
+  const quest =
+    randomTheme === "capital"
+      ? `${rightAnswer.capital[0]} is the capital of`
+      : "Which country does this flag belong to?  ";
 
   return (
     <div className={styles.quizCard}>
-      <h3 className={styles.quizCard_title}>{quest ?? "Some quest"}</h3>
+      {randomTheme === "flag" && (
+        <img
+          className={styles.quizCard_flag}
+          src={rightAnswer.flags.svg}
+          alt="flag of country"
+        />
+      )}
+      <h3 className={styles.quizCard_title}>{quest}</h3>
+      <ul className={styles.quizCard_list}>
+        {questions.map((el) => (
+          <li className={styles.quizCard_item} key={el.capital}>
+            {el.name.common}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
